@@ -38,6 +38,7 @@
 </dependencies>
   
   <build>
+  	<finalName>lesson14abc</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
