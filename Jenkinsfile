@@ -61,7 +61,7 @@ pipeline {
 					// Find the WAR file
             		//def warFile = findFiles(glob: 'target/*.war')[0]
             		def warFile = 'target\\inventory-project.war'
-            		echo "Deploying WAR file: ${warFile.path}"
+            		//echo "Deploying WAR file: ${warFile.path}"
  
 					// Tomcat Manager URL and credentials
 					def tomcatUrl = 'http://localhost:8090/manager/text'
@@ -71,7 +71,7 @@ pipeline {
 					// Deploy the WAR file using curl
 					bat """
 					curl -v -u ${tomcatUser}:${tomcatPassword} \
-					-T ${warFile.path} \
+					-T ${warFile} \
 					${tomcatUrl}/deploy?path=/InventoryProject
 					"""
 				}
