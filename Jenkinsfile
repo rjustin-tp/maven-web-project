@@ -5,6 +5,11 @@ pipeline {
 		jdk 'Java JDK 17'
 	}
 	stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
 		stage("clean") {
 			steps {
 				echo "Start Clean"
@@ -59,7 +64,8 @@ pipeline {
 			steps {
 				script {
 					// Find the WAR file
-					def warFile = findFiles(glob: '**/*.war')[0]
+            		def warFile = findFiles(glob: 'target/*.war')[0]
+            		echo "Deploying WAR file: ${warFile.path}"
  
 					// Tomcat Manager URL and credentials
 					def tomcatUrl = 'http://localhost:8090/manager/text'
