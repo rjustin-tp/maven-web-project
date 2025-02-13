@@ -60,7 +60,7 @@ pipeline {
 				script {
 					// Find the WAR file
             		//def warFile = findFiles(glob: 'target/*.war')[0]
-            		def warFile = 'target\inventory-project.war'
+            		def warFile = 'target\\inventory-project.war'
             		echo "Deploying WAR file: ${warFile.path}"
  
 					// Tomcat Manager URL and credentials
