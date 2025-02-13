@@ -5,11 +5,6 @@ pipeline {
 		jdk 'Java JDK 17'
 	}
 	stages {
-        stage('Clean Workspace') {
-            steps {
-                cleanWs()
-            }
-        }
 		stage("clean") {
 			steps {
 				echo "Start Clean"
