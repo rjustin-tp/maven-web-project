@@ -59,7 +59,8 @@ pipeline {
 			steps {
 				script {
 					// Find the WAR file
-            		def warFile = 'target/inventory-project.war'
+            		def warFile = findFiles(glob: 'target/*.war')[0]
+            		echo "Deploying WAR file: ${warFile.path}"
  
 					// Tomcat Manager URL and credentials
 					def tomcatUrl = 'http://localhost:8090/manager/text'
